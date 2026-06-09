@@ -82,5 +82,9 @@ window.addEventListener("load", () => {
         track.innerText = niceTrackName(source.getAttribute("src"));
     }
 
+    if (music) {
+        music.volume = 0.10; // 10% громкости
+    }
+
     tryPlayMusic();
 });
