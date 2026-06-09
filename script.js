@@ -6,7 +6,7 @@ const percent = document.getElementById("percent");
 const track = document.getElementById("track-name");
 
 function niceTrackName(name) {
-    if (!name) return "music.mp3";
+    if (!name) return "music.ogg";
 
     name = name.split("/").pop();
     name = name.replace(/\.[^/.]+$/, "");
