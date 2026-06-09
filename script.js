@@ -1,20 +1,9 @@
 let filesNeeded = 1;
+let filesTotal = 1;
 let filesDownloaded = 0;
 
 const fill = document.getElementById("progress-fill");
 const percent = document.getElementById("percent");
-const track = document.getElementById("track-name");
-
-function niceTrackName(name) {
-    if (!name) return "music.ogg";
-
-    name = name.split("/").pop();
-    name = name.replace(/\.[^/.]+$/, "");
-    name = decodeURIComponent(name);
-    name = name.replace(/[_-]+/g, " ");
-
-    return name.trim() || "music.mp3";
-}
 
 function updateProgress(value) {
     value = Math.max(0, Math.min(100, Math.round(value)));
@@ -24,50 +13,43 @@ function updateProgress(value) {
 
 function SetFilesNeeded(needed) {
     filesNeeded = Math.max(Number(needed) || 1, 1);
+    filesTotal = filesNeeded;
     filesDownloaded = 0;
     updateProgress(0);
 }
 
+function SetFilesTotal(total) {
+    filesTotal = Math.max(Number(total) || filesTotal || 1, 1);
+}
+
 function DownloadingFile(fileName) {
     filesDownloaded++;
-    updateProgress((filesDownloaded / filesNeeded) * 100);
+
+    let total = filesTotal || filesNeeded || 1;
+    updateProgress((filesDownloaded / total) * 100);
 }
 
 function SetStatusChanged(status) {
-    if (!status) return;
+    const text = String(status || "").toLowerCase();
 
-    const lower = String(status).toLowerCase();
-
-    if (lower.includes("sending client info") || lower.includes("client info")) {
+    if (
+        text.includes("sending client info") ||
+        text.includes("starting lua") ||
+        text.includes("client info")
+    ) {
         updateProgress(100);
     }
 }
 
-function GameDetails(servername, url, map, maxplayers, steamid, gamemode) {
-    // Можно дописать вывод карты/режима, если захочешь.
+function GameDetails(servername, url, mapname, maxplayers, steamid, gamemode) {
+    // Тут можно вывести карту или режим, если захочешь.
 }
 
 window.addEventListener("load", () => {
     updateProgress(0);
 
-    const audio = document.getElementById("music");
-    const source = audio ? audio.querySelector("source") : null;
-
-    if (source && source.getAttribute("src")) {
-        track.innerText = niceTrackName(source.getAttribute("src"));
+    const track = document.getElementById("track-name");
+    if (track) {
+        track.innerText = "music.ogg";
     }
-
-    // На случай если GMod не отдаёт события загрузки сразу — лёгкая стартовая анимация.
-    let fake = 0;
-    const fakeTimer = setInterval(() => {
-        if (filesDownloaded > 0) {
-            clearInterval(fakeTimer);
-            return;
-        }
-
-        fake = Math.min(fake + 1, 18);
-        updateProgress(fake);
-
-        if (fake >= 18) clearInterval(fakeTimer);
-    }, 180);
 });
