@@ -27,18 +27,19 @@ body{
         radial-gradient(circle at top,#3d220b 0%,#22150b 35%,#140d08 70%,#0a0806 100%);
 }
 
-/* ===================================================== */
-/* GRID (Canvas) */
-/* ===================================================== */
-
 #grid{
     position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    display:block;
+    inset:-80px;
     pointer-events:none;
     z-index:1;
+
+    background-image:
+        linear-gradient(rgba(255,150,45,.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,150,45,.16) 1px, transparent 1px);
+
+    background-size:48px 48px;
+
+    animation:gridLua 1.6s linear infinite;
 }
 
 /* glowing scan */
