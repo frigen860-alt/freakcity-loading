@@ -3,35 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreakCity Loading</title>
-    <link rel="stylesheet" href="style.css?v=4">
+    <title>Z-MUSORKA Loading</title>
+
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
-    <div id="bg"></div>
-    <div class="dark-layer"></div>
 
-    <div class="ui">
-        <div class="loader">
-            <div class="loader-top">
-                <span>ЗАГРУЗКА</span>
-                <span id="percent">0%</span>
-            </div>
-
-            <div class="progress-bar">
-                <div id="progress-fill"></div>
-            </div>
-
-            <div class="now-playing">
-                <div class="now-title">ИГРАЕТ СЕЙЧАС</div>
-                <div id="track-name">music.ogg</div>
-            </div>
-        </div>
+    <!-- Animated Background -->
+    <div id="background">
+        <div id="grid"></div>
+        <div id="overlay"></div>
     </div>
 
-    <audio id="music" autoplay loop preload="auto">
-        <source src="music.ogg?v=4" type="audio/ogg">
+    <!-- Music -->
+    <div id="music-widget">
+
+        <div class="music-top">
+            <span class="music-icon">♫</span>
+            <span class="music-now">NOW PLAYING</span>
+        </div>
+
+        <div id="music-title">
+            Unknown Track
+        </div>
+
+        <div id="music-author">
+            Unknown Artist
+        </div>
+
+        <div class="equalizer">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </div>
+
+    <!-- Logo -->
+    <div id="center">
+
+        <div id="logo">
+            Z-MUSORKA
+        </div>
+
+        <div id="subtitle">
+            CONNECTING TO SERVER...
+        </div>
+
+    </div>
+
+    <!-- Loading -->
+    <div id="loading">
+
+        <div class="loading-head">
+
+            <span>LOADING</span>
+
+            <span id="percent">
+                0%
+            </span>
+
+        </div>
+
+        <div class="loading-bar">
+
+            <div id="progress-fill"></div>
+
+        </div>
+
+    </div>
+
+    <audio
+        id="music"
+        autoplay
+        preload="auto"
+        loop>
+
+        <source src="music.ogg?v=5" type="audio/ogg">
+
     </audio>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
+
 </body>
 </html>
