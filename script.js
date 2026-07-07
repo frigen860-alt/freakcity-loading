@@ -1,6 +1,133 @@
-let filesNeeded=1,filesTotal=1,filesDownloaded=0;const fill=document.getElementById("progress-fill"),percent=document.getElementById("percent"),track=document.getElementById("track-name"),music=document.getElementById("music"),bg=document.getElementById("bg");
-function clamp(v,min,max){return Math.max(min,Math.min(max,v))}function updateProgress(value){value=clamp(Math.round(value||0),0,100);if(fill)fill.style.width=value+"%";if(percent)percent.innerText=value+"%"}function niceTrackName(name){if(!name)return"music.ogg";name=String(name).split("/").pop().replace(/\.[^/.]+$/," ");try{name=decodeURIComponent(name)}catch(e){}return name.replace(/[_-]+/g," ").trim()||"music.ogg"}
-function SetFilesNeeded(needed){filesNeeded=Math.max(Number(needed)||1,1);filesTotal=filesNeeded;filesDownloaded=0;updateProgress(0)}function SetFilesTotal(total){filesTotal=Math.max(Number(total)||filesTotal||1,1)}function DownloadingFile(fileName){filesDownloaded++;updateProgress(filesDownloaded/(filesTotal||filesNeeded||1)*100)}function SetStatusChanged(status){const s=String(status||"").toLowerCase();if(s.includes("sending client info")||s.includes("client info")||s.includes("starting lua")||s.includes("workshop complete"))updateProgress(100)}function GameDetails(servername,url,mapname,maxplayers,steamid,gamemode){}
-function setBackground(){const names=["background.png","bg.png","background.jpg","bg.jpg","background.jpeg","bg.jpeg","background.webp","bg.webp"];let i=0;function tryNext(){if(i>=names.length){console.log("[FreakCity Loading] background not found");return}const path=names[i++]+"?v="+Date.now();const im=new Image();im.onload=function(){if(bg)bg.style.backgroundImage='url("'+path+'")';console.log("[FreakCity Loading] background loaded:",path)};im.onerror=tryNext;im.src=path}tryNext()}
-function tryPlayMusic(){if(!music)return;music.volume=.10;const p=music.play();if(p&&p.catch)p.catch(()=>{document.body.addEventListener("click",()=>music.play(),{once:true});document.body.addEventListener("keydown",()=>music.play(),{once:true})})}
-window.addEventListener("load",()=>{updateProgress(0);setBackground();const source=music?music.querySelector("source"):null;if(track&&source)track.innerText=niceTrackName(source.getAttribute("src"));tryPlayMusic()});
+const MUSIC_INFO = {
+    title: "Your Track Name",
+    artist: "Your Artist"
+};
+
+let filesNeeded = 1;
+let filesTotal = 1;
+let filesDownloaded = 0;
+
+const progressFill = document.getElementById("progress-fill");
+const percent = document.getElementById("percent");
+
+const music = document.getElementById("music");
+
+const title = document.getElementById("music-title");
+const author = document.getElementById("music-author");
+
+function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+}
+
+function updateProgress(value) {
+
+    value = clamp(Math.round(value),0,100);
+
+    progressFill.style.width = value + "%";
+
+    percent.innerText = value + "%";
+
+}
+
+/* -------------------------------------- */
+/* GMod Loading */
+/* -------------------------------------- */
+
+function SetFilesNeeded(needed){
+
+    filesNeeded = Math.max(Number(needed) || 1,1);
+
+    filesTotal = filesNeeded;
+
+    filesDownloaded = 0;
+
+    updateProgress(0);
+
+}
+
+function SetFilesTotal(total){
+
+    filesTotal = Math.max(Number(total) || filesNeeded,1);
+
+}
+
+function DownloadingFile(file){
+
+    filesDownloaded++;
+
+    let progress = (filesDownloaded / filesTotal) * 100;
+
+    updateProgress(progress);
+
+}
+
+function SetStatusChanged(status){
+
+    status = String(status).toLowerCase();
+
+    if(
+        status.includes("starting lua") ||
+        status.includes("sending client info") ||
+        status.includes("client info") ||
+        status.includes("workshop complete")
+    ){
+
+        updateProgress(100);
+
+    }
+
+}
+
+function GameDetails(servername,url,mapname,maxplayers,steamid,gamemode){
+
+}
+
+/* -------------------------------------- */
+/* Music */
+/* -------------------------------------- */
+
+function loadMusic(){
+
+    title.innerText = MUSIC_INFO.title;
+
+    author.innerText = MUSIC_INFO.artist;
+
+}
+
+function playMusic(){
+
+    music.volume = 0.10;
+
+    const promise = music.play();
+
+    if(promise){
+
+        promise.catch(()=>{
+
+            const resume = ()=>{
+
+                music.play();
+
+            };
+
+            document.body.addEventListener("click",resume,{once:true});
+
+            document.body.addEventListener("keydown",resume,{once:true});
+
+        });
+
+    }
+
+}
+
+/* -------------------------------------- */
+
+window.onload = ()=>{
+
+    updateProgress(0);
+
+    loadMusic();
+
+    playMusic();
+
+};
