@@ -43,31 +43,7 @@ body{
 
 /* glowing scan */
 
-#grid::before{
 
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background-image:
-
-        linear-gradient(
-            rgba(255,180,90,.20) 2px,
-            transparent 2px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,180,90,.20) 2px,
-            transparent 2px
-        );
-
-    background-size:280px 280px;
-
-    animation:gridMoveReverse 26s linear infinite;
-
-}
 
 /* vignette */
 
@@ -75,13 +51,14 @@ body{
 
     position:absolute;
     inset:0;
+    pointer-events:none;
+    z-index:2;
 
     background:
-
         radial-gradient(
             circle,
-            transparent 30%,
-            rgba(0,0,0,.18) 70%,
+            transparent 35%,
+            rgba(0,0,0,.15) 70%,
             rgba(0,0,0,.55) 100%
         );
 
@@ -397,5 +374,13 @@ body{
         height:10px;
 
     }
+
+}
+
+#music-widget,
+#center,
+#loading{
+
+    z-index:5;
 
 }
