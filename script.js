@@ -188,6 +188,7 @@ nextBtn.onclick = ()=>{
         currentTrack = 0;
 
     loadMusic();
+    music.load();
     music.play();
 
 };
