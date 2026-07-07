@@ -1,7 +1,7 @@
 const PLAYLIST = [
 
 {
-    file: "music1.ogg",
+    file: "music.ogg",
     title: "Леди Совершенство",
     artist: "Мэри Поппинс"
 },
