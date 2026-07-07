@@ -1,7 +1,32 @@
-const MUSIC_INFO = {
+const PLAYLIST = [
+
+{
+    file: "music1.ogg",
     title: "Леди Совершенство",
-    artist: "Мэри Попинс"
-};
+    artist: "Мэри Поппинс"
+},
+
+{
+    file: "music2.ogg",
+    title: "Второй трек",
+    artist: "Исполнитель"
+},
+
+{
+    file: "music3.ogg",
+    title: "Третий трек",
+    artist: "Исполнитель"
+}
+
+];
+
+/*
+0 = music1
+1 = music2
+2 = music3
+*/
+
+const START_TRACK = 0;
 
 let filesNeeded = 1;
 let filesTotal = 1;
