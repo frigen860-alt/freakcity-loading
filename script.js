@@ -39,6 +39,9 @@ const music = document.getElementById("music");
 
 const title = document.getElementById("music-title");
 const author = document.getElementById("music-author");
+const prevBtn = document.getElementById("prev-track");
+const nextBtn = document.getElementById("next-track");
+const playBtn = document.getElementById("play-track");
 
 function clamp(value, min, max) {
     return Math.max(min, Math.min(max, value));
