@@ -175,6 +175,7 @@ prevBtn.onclick = ()=>{
         currentTrack = PLAYLIST.length - 1;
 
     loadMusic();
+    music.load();
     music.play();
 
 };
