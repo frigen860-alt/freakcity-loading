@@ -1,79 +1,143 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <title>Z-MUSORKA Loading</title>
 
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=1">
+
 </head>
+
 <body>
 
-    <!-- Animated Background -->
+    <!-- Background -->
+
     <div id="background">
-    <div id="grid"></div>
-    <div id="overlay"></div>
-</div>
-    
-    <!-- Music -->
-    <div id="music-widget">
 
-        <div class="music-top">
-            <span class="music-icon">♫</span>
-            <span class="music-now">NOW PLAYING</span>
-        </div>
+        <div id="grid"></div>
 
-        <div id="music-title">
-            Unknown Track
-        </div>
-
-        <div id="music-author">
-            Unknown Artist
-        </div>
-
-        <div class="equalizer">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div id="overlay"></div>
 
     </div>
 
-<div class="music-controls">
+    <!-- Music Player -->
 
-    <button id="prev-track" title="Предыдущий трек">⏮</button>
+    <div id="music-widget">
 
-    <button id="play-track" title="Пауза / Воспроизведение">⏯</button>
+        <div class="music-header">
 
-    <button id="next-track" title="Следующий трек">⏭</button>
-    
-</div>
+            <div class="music-label">
 
-</div>
-    <!-- Logo -->
+                ♫ NOW PLAYING
+
+            </div>
+
+            <div id="playlist-count">
+
+                1 / 1
+
+            </div>
+
+        </div>
+
+        <div id="music-title">
+
+            Unknown Track
+
+        </div>
+
+        <div id="music-author">
+
+            Unknown Artist
+
+        </div>
+
+        <div class="music-progress">
+
+            <div id="music-progress-fill"></div>
+
+        </div>
+
+        <div class="music-time">
+
+            <span id="current-time">
+
+                00:00
+
+            </span>
+
+            <span id="duration">
+
+                00:00
+
+            </span>
+
+        </div>
+
+        <div class="music-bottom">
+
+            <div class="equalizer">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+            <div class="music-controls">
+
+                <button id="prev-track">⏮</button>
+
+                <button id="play-track">▶</button>
+
+                <button id="next-track">⏭</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Center -->
+
     <div id="center">
 
         <div id="logo">
+
             Z-MUSORKA
+
         </div>
 
         <div id="subtitle">
+
             CONNECTING TO SERVER...
+
         </div>
 
     </div>
 
     <!-- Loading -->
+
     <div id="loading">
 
-        <div class="loading-head">
+        <div class="loading-top">
 
-            <span>LOADING</span>
+            <span id="loading-status">
+
+                DOWNLOADING CONTENT
+
+            </span>
 
             <span id="percent">
+
                 0%
+
             </span>
 
         </div>
@@ -86,9 +150,10 @@
 
     </div>
 
-<audio id="music" preload="auto"></audio>
+    <audio id="music" preload="auto"></audio>
 
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=1"></script>
 
 </body>
+
 </html>
