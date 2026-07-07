@@ -128,25 +128,20 @@ function playMusic(){
 
     music.volume = 0.10;
 
-    const promise = music.play();
+    music.currentTime = 0;
 
-    if(promise){
+    music.play().catch(()=>{
 
-        promise.catch(()=>{
+        const resume = ()=>{
 
-            const resume = ()=>{
+            music.play();
 
-                music.play();
+        };
 
-            };
+        document.body.addEventListener("click",resume,{once:true});
+        document.body.addEventListener("keydown",resume,{once:true});
 
-            document.body.addEventListener("click",resume,{once:true});
-
-            document.body.addEventListener("keydown",resume,{once:true});
-
-        });
-
-    }
+    });
 
 }
 
@@ -238,3 +233,9 @@ function drawGrid(now){
 }
 
 requestAnimationFrame(drawGrid);
+
+music.addEventListener("ended",()=>{
+
+    console.log("Трек закончился.");
+
+});
