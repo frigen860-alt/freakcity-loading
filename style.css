@@ -6,123 +6,196 @@
 
 html,
 body{
+
     width:100%;
     height:100%;
+
     overflow:hidden;
+
     font-family:"Segoe UI",Arial,sans-serif;
-    background:#171008;
+
+    background:#0b0806;
+
     color:#fff;
+
 }
 
-/* ===================================================== */
-/* BACKGROUND */
-/* ===================================================== */
+button{
+
+    font-family:inherit;
+
+}
+
+body{
+
+    user-select:none;
+
+}
+
+/* ===========================================================
+   BACKGROUND
+=========================================================== */
 
 #background{
+
     position:fixed;
+
     inset:0;
+
     overflow:hidden;
 
+    z-index:0;
+
     background:
-        radial-gradient(circle at top,#3d220b 0%,#22150b 35%,#140d08 70%,#0a0806 100%);
+
+        radial-gradient(circle at top,
+
+        #4b2a0e 0%,
+
+        #2b180b 28%,
+
+        #17100a 55%,
+
+        #090705 100%);
+
 }
 
+/* ===========================================================
+   GRID
+=========================================================== */
+
 #grid{
+
     position:absolute;
-    inset:-80px;
-    pointer-events:none;
-    z-index:1;
+
+    inset:-120px;
 
     background-image:
-        linear-gradient(rgba(255,150,45,.16) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,150,45,.16) 1px, transparent 1px);
+
+        linear-gradient(
+
+            rgba(255,165,65,.10) 1px,
+
+            transparent 1px
+
+        ),
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(255,165,65,.10) 1px,
+
+            transparent 1px
+
+        );
 
     background-size:48px 48px;
 
-    animation:gridLua 1.6s linear infinite;
+    animation:gridMove 2s linear infinite;
+
 }
 
-/* glowing scan */
-
-
-
-/* vignette */
+/* ===========================================================
+   VIGNETTE
+=========================================================== */
 
 #overlay{
 
     position:absolute;
+
     inset:0;
-    pointer-events:none;
-    z-index:2;
 
     background:
+
         radial-gradient(
+
             circle,
-            transparent 35%,
-            rgba(0,0,0,.15) 70%,
-            rgba(0,0,0,.55) 100%
+
+            transparent 20%,
+
+            rgba(0,0,0,.20) 65%,
+
+            rgba(0,0,0,.72) 100%
+
         );
 
 }
 
-/* ===================================================== */
-/* MUSIC */
-/* ===================================================== */
+/* ===========================================================
+   MUSIC PANEL
+=========================================================== */
 
 #music-widget{
 
     position:absolute;
 
     left:45px;
+
     top:40px;
 
-    width:340px;
+    width:360px;
 
-    padding:22px;
+    padding:24px;
 
     border-radius:18px;
 
-    background:rgba(25,18,10,.55);
+    background:rgba(20,14,9,.55);
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(18px);
 
     border:1px solid rgba(255,170,70,.18);
 
     box-shadow:
 
-        0 0 30px rgba(255,140,30,.12),
+        0 0 30px rgba(255,140,20,.08),
 
-        inset 0 0 40px rgba(255,255,255,.02);
+        inset 0 0 35px rgba(255,255,255,.02);
+
+    z-index:10;
 
 }
+/* ===========================================================
+   MUSIC HEADER
+=========================================================== */
 
-.music-top{
+.music-header{
 
     display:flex;
 
+    justify-content:space-between;
+
     align-items:center;
 
-    gap:10px;
-
 }
 
-.music-icon{
+.music-label{
 
-    color:#ffb458;
-
-    font-size:22px;
-
-}
-
-.music-now{
+    color:#ffb45c;
 
     font-size:12px;
 
+    font-weight:700;
+
     letter-spacing:4px;
 
-    color:#c5a889;
+    text-transform:uppercase;
 
 }
+
+#playlist-count{
+
+    color:#9c8268;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/* ===========================================================
+   TITLE
+=========================================================== */
 
 #music-title{
 
@@ -132,11 +205,17 @@ body{
 
     font-weight:700;
 
-    color:white;
+    color:#ffffff;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
 
     text-shadow:
 
-        0 0 20px rgba(255,170,70,.35);
+        0 0 14px rgba(255,170,70,.25);
 
 }
 
@@ -144,25 +223,103 @@ body{
 
     margin-top:8px;
 
-    color:#b99874;
+    color:#b89973;
 
     font-size:16px;
 
 }
 
-/* ===================================================== */
-/* EQUALIZER */
-/* ===================================================== */
+/* ===========================================================
+   MUSIC BAR
+=========================================================== */
 
-.equalizer{
+.music-progress{
+
+    width:100%;
+
+    height:6px;
+
+    margin-top:18px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+}
+
+#music-progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            #ff8d22,
+
+            #ffb84e
+
+        );
+
+    box-shadow:
+
+        0 0 10px rgba(255,160,60,.45);
+
+}
+
+/* ===========================================================
+   MUSIC TIME
+=========================================================== */
+
+.music-time{
+
+    margin-top:10px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#8f7b66;
+
+    font-size:12px;
+
+}
+
+/* ===========================================================
+   PLAYER
+=========================================================== */
+
+.music-bottom{
 
     margin-top:22px;
 
     display:flex;
 
-    gap:6px;
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+/* ===========================================================
+   EQUALIZER
+=========================================================== */
+
+.equalizer{
+
+    display:flex;
 
     align-items:flex-end;
+
+    gap:5px;
 
     height:28px;
 
@@ -170,35 +327,31 @@ body{
 
 .equalizer span{
 
-    width:5px;
+    width:4px;
 
-    border-radius:50px;
+    height:10px;
+
+    border-radius:30px;
 
     background:#ffb347;
 
-    animation:bars .8s infinite ease-in-out;
-
     box-shadow:
 
-        0 0 8px #ffb347;
+        0 0 8px rgba(255,180,70,.55);
 
-}
-
-.equalizer span:nth-child(1){
-
-    animation-delay:.1s;
+    animation:equalizer .8s ease-in-out infinite;
 
 }
 
 .equalizer span:nth-child(2){
 
-    animation-delay:.35s;
+    animation-delay:.15s;
 
 }
 
 .equalizer span:nth-child(3){
 
-    animation-delay:.2s;
+    animation-delay:.30s;
 
 }
 
@@ -210,43 +363,114 @@ body{
 
 .equalizer span:nth-child(5){
 
-    animation-delay:.15s;
+    animation-delay:.60s;
+
+}
+/* ===========================================================
+   PLAYER BUTTONS
+=========================================================== */
+
+.music-controls{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
 
 }
 
-/* ===================================================== */
-/* CENTER */
-/* ===================================================== */
+.music-controls button{
+
+    width:38px;
+
+    height:38px;
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    border-radius:10px;
+
+    background:rgba(255,170,70,.10);
+
+    color:#ffb75d;
+
+    font-size:16px;
+
+    transition:
+
+        background .18s,
+
+        transform .18s,
+
+        box-shadow .18s;
+
+    border:1px solid rgba(255,170,70,.12);
+
+    box-shadow:
+
+        inset 0 0 12px rgba(255,255,255,.02),
+
+        0 0 10px rgba(255,150,30,.08);
+
+}
+
+.music-controls button:hover{
+
+    background:rgba(255,170,70,.22);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+        0 0 18px rgba(255,170,70,.30);
+
+}
+
+.music-controls button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ===========================================================
+   CENTER
+=========================================================== */
 
 #center{
 
     position:absolute;
 
-    top:50%;
-
     left:50%;
+
+    top:50%;
 
     transform:translate(-50%,-58%);
 
     text-align:center;
 
+    z-index:10;
+
 }
 
 #logo{
 
-    font-size:72px;
+    font-size:78px;
 
     font-weight:900;
 
-    letter-spacing:12px;
+    letter-spacing:14px;
 
-    color:#fff;
+    color:#ffffff;
 
     text-shadow:
 
-        0 0 15px rgba(255,180,90,.25),
+        0 0 18px rgba(255,180,70,.18),
 
-        0 0 35px rgba(255,120,20,.18);
+        0 0 38px rgba(255,120,20,.15);
 
 }
 
@@ -254,17 +478,19 @@ body{
 
     margin-top:18px;
 
-    color:#c9b59a;
-
     font-size:17px;
 
-    letter-spacing:6px;
+    letter-spacing:7px;
+
+    color:#b69473;
+
+    text-transform:uppercase;
 
 }
 
-/* ===================================================== */
-/* LOADING */
-/* ===================================================== */
+/* ===========================================================
+   LOADING PANEL
+=========================================================== */
 
 #loading{
 
@@ -272,51 +498,67 @@ body{
 
     left:50%;
 
-    bottom:70px;
+    bottom:60px;
 
     transform:translateX(-50%);
 
-    width:min(850px,70vw);
+    width:min(900px,70vw);
+
+    z-index:10;
 
 }
 
-.loading-head{
+.loading-top{
 
     display:flex;
 
     justify-content:space-between;
 
+    align-items:center;
+
     margin-bottom:12px;
 
-    color:#f5d2a3;
+}
+
+#loading-status{
+
+    color:#d8b489;
+
+    font-size:15px;
 
     font-weight:700;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
+
+}
+
+#percent{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:800;
 
 }
 
 .loading-bar{
 
+    width:100%;
+
     height:22px;
 
-    border-radius:50px;
+    border-radius:999px;
 
     overflow:hidden;
 
-    background:
+    background:rgba(20,14,10,.85);
 
-        rgba(18,13,8,.88);
-
-    border:
-
-        1px solid rgba(255,170,60,.20);
+    border:1px solid rgba(255,170,70,.12);
 
     box-shadow:
 
-        inset 0 0 20px rgba(0,0,0,.6),
-
-        0 0 18px rgba(255,120,20,.10);
+        inset 0 0 18px rgba(0,0,0,.7);
 
 }
 
@@ -326,7 +568,7 @@ body{
 
     height:100%;
 
-    border-radius:50px;
+    border-radius:999px;
 
     background:
 
@@ -338,150 +580,172 @@ body{
 
             #ffb347,
 
-            #ffd083
+            #ffd48c
 
         );
 
-    transition:width .25s;
+    transition:width .25s linear;
 
     box-shadow:
 
-        0 0 18px rgba(255,170,60,.55),
-
-        0 0 35px rgba(255,120,20,.35);
+        0 0 20px rgba(255,170,70,.45);
 
 }
 
-/* ===================================================== */
-/* ANIMATIONS */
-/* ===================================================== */
+@keyframes equalizer{
 
-@keyframes bars{
+    0%{
+        height:8px;
+    }
+
+    25%{
+        height:22px;
+    }
+
+    50%{
+        height:14px;
+    }
+
+    75%{
+        height:26px;
+    }
+
+    100%{
+        height:8px;
+    }
+
+}
+
+@keyframes gridMove{
+
+    from{
+
+        background-position:
+            0px 0px,
+            0px 0px;
+
+    }
+
+    to{
+
+        background-position:
+            -48px 48px,
+            -48px 48px;
+
+    }
+
+}
+
+@keyframes logoPulse{
 
     0%{
 
-        height:8px;
+        text-shadow:
+            0 0 18px rgba(255,180,70,.18),
+            0 0 38px rgba(255,120,20,.15);
 
     }
 
     50%{
 
-        height:26px;
+        text-shadow:
+            0 0 28px rgba(255,180,70,.28),
+            0 0 55px rgba(255,120,20,.28);
 
     }
 
     100%{
 
-        height:10px;
+        text-shadow:
+            0 0 18px rgba(255,180,70,.18),
+            0 0 38px rgba(255,120,20,.15);
 
     }
 
 }
 
-#music-widget,
-#center,
-#loading{
+#logo{
 
-    z-index:5;
+    animation:logoPulse 3s ease-in-out infinite;
 
 }
 
-.music-controls{
+/* ===========================================================
+   Scrollbars
+=========================================================== */
 
-    margin-top:18px;
+::-webkit-scrollbar{
 
-    display:flex;
-
-    gap:12px;
-
-}
-
-.music-controls button{
-
-    width:42px;
-    height:42px;
-
-    border:none;
-    border-radius:10px;
-
-    cursor:pointer;
-
-    background:rgba(255,170,70,.12);
-
-    color:#ffb347;
-
-    font-size:18px;
-
-    transition:.2s;
+    width:0;
+    height:0;
 
 }
 
-.music-controls button:hover{
+/* ===========================================================
+   Responsive
+=========================================================== */
 
-    background:rgba(255,170,70,.25);
+@media (max-width:1200px){
 
-    transform:translateY(-2px);
+    #loading{
 
-}
+        width:80vw;
 
-
-.music-bottom{
-
-    margin-top:20px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-.music-controls{
-
-    display:flex;
-
-    gap:8px;
-
-}
-
-.music-controls button{
-
-    width:34px;
-    height:34px;
-
-    border:none;
-    border-radius:8px;
-
-    background:rgba(255,170,70,.12);
-
-    color:#ffb347;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:.2s;
-
-    border:1px solid rgba(255,170,70,.15);
-
-}
-
-.music-controls button:hover{
-
-    background:rgba(255,170,70,.28);
-
-    transform:scale(1.05);
-
-}
-
-
-@keyframes gridLua{
-    from{
-        background-position:0 0, 0 0;
     }
 
-    to{
-        background-position:-48px 48px, -48px 48px;
+}
+
+@media (max-width:900px){
+
+    #music-widget{
+
+        width:320px;
+
+        left:20px;
+        top:20px;
+
     }
+
+    #logo{
+
+        font-size:58px;
+
+        letter-spacing:8px;
+
+    }
+
+}
+
+@media (max-width:650px){
+
+    #music-widget{
+
+        width:90vw;
+
+        left:5vw;
+
+    }
+
+    #loading{
+
+        width:90vw;
+
+    }
+
+    #logo{
+
+        font-size:42px;
+
+        letter-spacing:5px;
+
+    }
+
+    #subtitle{
+
+        font-size:13px;
+
+        letter-spacing:4px;
+
+    }
+
 }
