@@ -155,6 +155,7 @@ window.onload = ()=>{
     updateProgress(0);
 
     loadMusic();
+    music.load();
 
     playMusic();
 
