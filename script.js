@@ -160,16 +160,6 @@ window.onload = ()=>{
 
 };
 
-@keyframes gridLua{
-    from{
-        background-position:0 0, 0 0;
-    }
-
-    to{
-        background-position:-48px 48px, -48px 48px;
-    }
-}
-
     requestAnimationFrame(drawGrid);
 
 }
