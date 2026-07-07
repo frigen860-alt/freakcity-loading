@@ -242,3 +242,36 @@ music.addEventListener("ended",()=>{
     console.log("Трек закончился.");
 
 });
+
+prevBtn.onclick = ()=>{
+
+    currentTrack--;
+
+    if(currentTrack < 0)
+        currentTrack = PLAYLIST.length - 1;
+
+    loadMusic();
+    music.play();
+
+};
+
+nextBtn.onclick = ()=>{
+
+    currentTrack++;
+
+    if(currentTrack >= PLAYLIST.length)
+        currentTrack = 0;
+
+    loadMusic();
+    music.play();
+
+};
+
+playBtn.onclick = ()=>{
+
+    if(music.paused)
+        music.play();
+    else
+        music.pause();
+
+};
