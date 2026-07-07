@@ -160,11 +160,6 @@ window.onload = ()=>{
 
 };
 
-    requestAnimationFrame(drawGrid);
-
-}
-
-requestAnimationFrame(drawGrid);
 
 music.addEventListener("ended",()=>{
 
