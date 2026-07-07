@@ -111,11 +111,16 @@ function GameDetails(servername,url,mapname,maxplayers,steamid,gamemode){
 /* Music */
 /* -------------------------------------- */
 
+let currentTrack = START_TRACK;
+
 function loadMusic(){
 
-    title.innerText = MUSIC_INFO.title;
+    const track = PLAYLIST[currentTrack];
 
-    author.innerText = MUSIC_INFO.artist;
+    title.innerText = track.title;
+    author.innerText = track.artist;
+
+    music.src = track.file;
 
 }
 
