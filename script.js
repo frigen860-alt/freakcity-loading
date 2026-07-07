@@ -1,6 +1,6 @@
 const MUSIC_INFO = {
-    title: "Your Track Name",
-    artist: "Your Artist"
+    title: "Леди Совершенство",
+    artist: "Мэри Попинс"
 };
 
 let filesNeeded = 1;
