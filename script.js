@@ -34,7 +34,7 @@ const PLAYLIST = [
     SETTINGS
 =========================================================*/
 
-const START_TRACK = 1;
+const START_TRACK = 0;
 
 const AUTO_NEXT = false;
 
