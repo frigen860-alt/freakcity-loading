@@ -4,155 +4,251 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0">
 
     <title>Z-MUSORKA Loading</title>
 
-    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet"
+          href="style.css?v=2">
 
 </head>
 
 <body>
 
-    <!-- Background -->
+<!-- =======================================================
+     BACKGROUND
+======================================================== -->
 
-    <div id="background">
+<div id="background">
 
-        <div id="grid"></div>
+    <canvas id="grid-canvas"></canvas>
 
-        <div id="overlay"></div>
+    <div id="background-gradient"></div>
 
-    </div>
+    <div id="background-glow"></div>
 
-    <!-- Music Player -->
+    <div id="background-noise"></div>
 
-    <div id="music-widget">
+    <div id="vignette"></div>
 
-        <div class="music-header">
+</div>
 
-            <div class="music-label">
+<!-- =======================================================
+     HUGE BACKGROUND LETTER
+======================================================== -->
 
-                ♫ NOW PLAYING
+<div id="background-logo">
 
-            </div>
+    Z
 
-            <div id="playlist-count">
+</div>
 
-                1 / 1
+<!-- =======================================================
+     MUSIC PLAYER
+======================================================== -->
 
-            </div>
+<div id="music-widget">
 
-        </div>
+    <div class="music-header">
 
-        <div id="music-title">
+        <div class="music-label">
 
-            Unknown Track
-
-        </div>
-
-        <div id="music-author">
-
-            Unknown Artist
-
-        </div>
-
-        <div class="music-progress">
-
-            <div id="music-progress-fill"></div>
+            ♫ NOW PLAYING
 
         </div>
 
-        <div class="music-time">
+        <div id="playlist-count">
 
-            <span id="current-time">
-
-                00:00
-
-            </span>
-
-            <span id="duration">
-
-                00:00
-
-            </span>
-
-        </div>
-
-        <div class="music-bottom">
-
-            <div class="equalizer">
-
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </div>
-
-            <div class="music-controls">
-
-                <button id="prev-track">⏮</button>
-
-                <button id="play-track">▶</button>
-
-                <button id="next-track">⏭</button>
-
-            </div>
+            1 / 3
 
         </div>
 
     </div>
 
-    <!-- Center -->
+    <div id="music-title">
 
-    <div id="center">
+        Unknown Track
 
-        <div id="logo">
+    </div>
+
+    <div id="music-author">
+
+        Unknown Artist
+
+    </div>
+
+    <div class="music-progress">
+
+        <div id="music-progress-fill"></div>
+
+    </div>
+
+    <div class="music-time">
+
+        <span id="current-time">
+
+            00:00
+
+        </span>
+
+        <span id="duration">
+
+            00:00
+
+        </span>
+
+    </div>
+
+    <div class="music-bottom">
+
+        <div class="equalizer">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <div class="music-controls">
+
+            <button id="prev-track">⏮</button>
+
+            <button id="play-track">▶</button>
+
+            <button id="next-track">⏭</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =======================================================
+     CENTER
+======================================================== -->
+
+<div id="center">
+
+    <div id="logo-glow"></div>
+
+    <div id="logo">
+
+        <span class="logo-z">Z</span><span class="logo-rest">-MUSORKA</span>
+
+    </div>
+
+    <div id="subtitle">
+
+        CONNECTING TO SERVER
+
+    </div>
+
+    <div id="server-info">
+
+        <span id="server-name">
 
             Z-MUSORKA
 
-        </div>
+        </span>
 
-        <div id="subtitle">
+        <span class="dot">•</span>
 
-            CONNECTING TO SERVER...
+        <span id="server-map">
+
+            Loading...
+
+        </span>
+
+    </div>
+
+</div>
+
+<!-- =======================================================
+     LOADING
+======================================================== -->
+
+<div id="loading">
+
+    <div class="loading-top">
+
+        <span id="loading-status">
+
+            DOWNLOADING CONTENT
+
+        </span>
+
+        <span id="percent">
+
+            0%
+
+        </span>
+
+    </div>
+
+    <div class="loading-bar">
+
+        <div id="progress-fill">
+
+            <div id="progress-glow"></div>
 
         </div>
 
     </div>
 
-    <!-- Loading -->
+</div>
 
-    <div id="loading">
+<!-- =======================================================
+     HUD
+======================================================== -->
 
-        <div class="loading-top">
+<div id="hud-left">
 
-            <span id="loading-status">
+    <div>
 
-                DOWNLOADING CONTENT
-
-            </span>
-
-            <span id="percent">
-
-                0%
-
-            </span>
-
-        </div>
-
-        <div class="loading-bar">
-
-            <div id="progress-fill"></div>
-
-        </div>
+        CLIENT READY
 
     </div>
 
-    <audio id="music" preload="auto"></audio>
+    <div>
 
-    <script src="script.js?v=1"></script>
+        HTML VERSION
+
+    </div>
+
+</div>
+
+<div id="hud-right">
+
+    <div id="loading-files">
+
+        0 / 0 FILES
+
+    </div>
+
+    <div>
+
+        WORKSHOP
+
+    </div>
+
+</div>
+
+<!-- =======================================================
+     AUDIO
+======================================================== -->
+
+<audio id="music"
+       preload="auto"></audio>
+
+<!-- =======================================================
+     SCRIPT
+======================================================== -->
+
+<script src="script.js?v=2"></script>
 
 </body>
 
