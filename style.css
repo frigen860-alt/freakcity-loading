@@ -25,15 +25,9 @@ body{
         Arial,
         sans-serif;
 
-    background:#070707;
+    background:#080808;
 
-    color:#fff;
-
-}
-
-button{
-
-    font-family:inherit;
+    color:white;
 
 }
 
@@ -52,75 +46,38 @@ button{
     z-index:0;
 
     background:
+
         radial-gradient(
+
             circle at center,
+
             #3b2412 0%,
-            #22150d 20%,
-            #13100d 42%,
-            #090908 75%,
-            #040404 100%
-        );
 
-}
+            #25180f 28%,
 
-/*==========================================================
-    GRID CANVAS
-==========================================================*/
+            #14100d 55%,
 
-#grid-canvas{
+            #090908 80%,
 
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    z-index:1;
-
-    opacity:.65;
-
-}
-
-/*==========================================================
-    BACKGROUND GRADIENT
-==========================================================*/
-
-#background-gradient{
-
-    position:absolute;
-
-    inset:0;
-
-    z-index:2;
-
-    background:
-
-        radial-gradient(
-
-            circle at center,
-
-            rgba(255,160,40,.10),
-
-            transparent 55%
+            #050505 100%
 
         );
 
 }
 
 /*==========================================================
-    BIG GLOW
+    ORANGE GLOW
 ==========================================================*/
 
-#background-glow{
+#bg-glow{
 
     position:absolute;
 
     left:50%;
     top:50%;
 
-    width:900px;
-    height:900px;
+    width:950px;
+    height:950px;
 
     transform:
 
@@ -138,38 +95,200 @@ button{
 
             rgba(255,140,30,.08),
 
-            transparent 70%
+            transparent 72%
 
         );
 
-    filter:blur(90px);
-
-    z-index:2;
+    filter:blur(110px);
 
     animation:
 
         glowPulse
-        8s
+        7s
         ease-in-out
         infinite;
 
 }
 
 /*==========================================================
-    FILM NOISE
+    GRID
 ==========================================================*/
 
-#background-noise{
+#grid{
+
+    position:absolute;
+
+    inset:-120px;
+
+    opacity:.22;
+
+    background-image:
+
+        linear-gradient(
+
+            rgba(255,165,65,.12) 1px,
+
+            transparent 1px
+
+        ),
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(255,165,65,.12) 1px,
+
+            transparent 1px
+
+        );
+
+    background-size:
+
+        54px 54px;
+
+    animation:
+
+        gridMove
+        3s
+        linear
+        infinite;
+
+}
+
+/*==========================================================
+    SECOND GRID
+==========================================================*/
+
+#grid::before{
+
+    content:"";
 
     position:absolute;
 
     inset:0;
 
-    z-index:4;
+    opacity:.4;
 
-    opacity:.03;
+    background-image:
+
+        linear-gradient(
+
+            rgba(255,180,90,.06) 1px,
+
+            transparent 1px
+
+        ),
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(255,180,90,.06) 1px,
+
+            transparent 1px
+
+        );
+
+    background-size:
+
+        108px 108px;
+
+    animation:
+
+        gridMoveReverse
+        8s
+        linear
+        infinite;
+
+}
+
+/*==========================================================
+    LIGHT SWEEP
+==========================================================*/
+
+#grid-light{
+
+    position:absolute;
+
+    inset:-30%;
 
     pointer-events:none;
+
+    background:
+
+        linear-gradient(
+
+            115deg,
+
+            transparent 0%,
+
+            rgba(255,150,35,.03) 45%,
+
+            rgba(255,185,80,.12) 50%,
+
+            rgba(255,150,35,.03) 55%,
+
+            transparent 100%
+
+        );
+
+    animation:
+
+        sweep
+        6s
+        linear
+        infinite;
+
+}
+
+/*==========================================================
+    GRID DOTS
+==========================================================*/
+
+#grid-dots{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background-image:
+
+        radial-gradient(
+
+            rgba(255,180,80,.18) 1.2px,
+
+            transparent 1.3px
+
+        );
+
+    background-size:
+
+        54px 54px;
+
+    opacity:.20;
+
+    animation:
+
+        dotsPulse
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+/*==========================================================
+    NOISE
+==========================================================*/
+
+#noise{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.025;
 
     background-image:
 
@@ -177,7 +296,7 @@ button{
 
             circle,
 
-            rgba(255,255,255,.08) 0px,
+            rgba(255,255,255,.10) 0px,
 
             transparent 2px,
 
@@ -187,22 +306,19 @@ button{
 
     background-size:
 
-        220px
-        220px;
+        180px 180px;
 
 }
 
 /*==========================================================
-    VIGNETTE
+    OVERLAY
 ==========================================================*/
 
-#vignette{
+#overlay{
 
     position:absolute;
 
     inset:0;
-
-    z-index:5;
 
     background:
 
@@ -210,18 +326,18 @@ button{
 
             circle,
 
-            transparent 30%,
+            transparent 18%,
 
-            rgba(0,0,0,.18) 55%,
+            rgba(0,0,0,.20) 55%,
 
-            rgba(0,0,0,.72) 100%
+            rgba(0,0,0,.78) 100%
 
         );
 
 }
 
 /*==========================================================
-    HUGE Z
+    BIG BACKGROUND LETTER
 ==========================================================*/
 
 #background-logo{
@@ -237,23 +353,21 @@ button{
 
     font-size:
 
-        min(65vw,1100px);
+        min(72vw,1300px);
 
     font-weight:900;
 
-    line-height:1;
-
-    letter-spacing:-40px;
-
     color:
 
-        rgba(255,150,35,.045);
+        rgba(255,150,40,.035);
+
+    line-height:1;
+
+    letter-spacing:-50px;
 
     text-shadow:
 
-        0 0 60px rgba(255,150,35,.05);
-
-    z-index:3;
+        0 0 50px rgba(255,150,35,.08);
 
     pointer-events:none;
 
@@ -267,42 +381,112 @@ button{
 }
 
 /*==========================================================
-    FADE
+    AMBIENT
 ==========================================================*/
 
-body::after{
-
-    content:"";
+#ambient-light{
 
     position:absolute;
 
-    inset:0;
+    left:50%;
+    top:50%;
 
-    z-index:999;
+    width:1000px;
+    height:1000px;
 
-    pointer-events:none;
+    transform:
+
+        translate(-50%,-50%);
+
+    border-radius:50%;
 
     background:
 
-        linear-gradient(
+        radial-gradient(
 
-            to bottom,
+            circle,
 
-            rgba(255,255,255,.015),
+            rgba(255,170,60,.04),
 
-            transparent 12%,
-
-            transparent 88%,
-
-            rgba(0,0,0,.22)
+            transparent 72%
 
         );
+
+    filter:blur(160px);
 
 }
 
 /*==========================================================
     ANIMATIONS
 ==========================================================*/
+
+@keyframes gridMove{
+
+    from{
+
+        background-position:
+
+            0 0,
+
+            0 0;
+
+    }
+
+    to{
+
+        background-position:
+
+            -54px 54px,
+
+            -54px 54px;
+
+    }
+
+}
+
+@keyframes gridMoveReverse{
+
+    from{
+
+        background-position:
+
+            0 0,
+
+            0 0;
+
+    }
+
+    to{
+
+        background-position:
+
+            108px -108px,
+
+            108px -108px;
+
+    }
+
+}
+
+@keyframes sweep{
+
+    from{
+
+        transform:
+
+            translateX(-45%);
+
+    }
+
+    to{
+
+        transform:
+
+            translateX(45%);
+
+    }
+
+}
 
 @keyframes glowPulse{
 
@@ -312,9 +496,7 @@ body::after{
 
             translate(-50%,-50%)
 
-            scale(.95);
-
-        opacity:.7;
+            scale(.96);
 
     }
 
@@ -324,9 +506,7 @@ body::after{
 
             translate(-50%,-50%)
 
-            scale(1.06);
-
-        opacity:1;
+            scale(1.05);
 
     }
 
@@ -336,9 +516,29 @@ body::after{
 
             translate(-50%,-50%)
 
-            scale(.95);
+            scale(.96);
 
-        opacity:.7;
+    }
+
+}
+
+@keyframes dotsPulse{
+
+    0%{
+
+        opacity:.10;
+
+    }
+
+    50%{
+
+        opacity:.25;
+
+    }
+
+    100%{
+
+        opacity:.10;
 
     }
 
@@ -386,41 +586,50 @@ body::after{
     position:absolute;
 
     left:42px;
-    top:38px;
+    top:40px;
 
-    width:380px;
+    width:390px;
 
-    padding:24px;
+    padding:26px;
 
-    border-radius:22px;
+    border-radius:20px;
+
+    z-index:25;
 
     overflow:hidden;
 
-    z-index:20;
-
     background:
+
         linear-gradient(
+
             180deg,
-            rgba(28,20,14,.82),
-            rgba(15,12,10,.74)
+
+            rgba(28,20,15,.78),
+
+            rgba(15,12,10,.70)
+
         );
 
-    border:1px solid rgba(255,165,60,.16);
+    border:
 
-    backdrop-filter:blur(22px);
+        1px solid rgba(255,170,70,.16);
+
+    backdrop-filter:
+
+        blur(18px);
 
     box-shadow:
 
-        0 25px 70px rgba(0,0,0,.45),
+        0 30px 80px rgba(0,0,0,.45),
 
         inset 0 0 0 1px rgba(255,255,255,.02),
 
-        inset 0 0 80px rgba(255,150,40,.03),
-
-        0 0 45px rgba(255,140,30,.08);
+        inset 0 0 60px rgba(255,170,70,.03);
 
     transition:
+
         transform .25s,
+
         box-shadow .25s;
 
 }
@@ -428,13 +637,46 @@ body::after{
 #music-widget:hover{
 
     transform:
+
         translateY(-3px);
 
     box-shadow:
 
         0 35px 90px rgba(0,0,0,.55),
 
-        0 0 70px rgba(255,160,50,.12);
+        0 0 40px rgba(255,150,40,.10);
+
+}
+
+/*==========================================================
+    TOP STRIP
+==========================================================*/
+
+#music-widget::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    top:0;
+
+    height:2px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,170,70,.90),
+
+            transparent
+
+        );
 
 }
 
@@ -456,11 +698,11 @@ body::after{
 
     font-size:11px;
 
+    font-weight:700;
+
     letter-spacing:4px;
 
-    font-weight:800;
-
-    color:#ffb760;
+    color:#ffb866;
 
     text-transform:uppercase;
 
@@ -468,16 +710,14 @@ body::after{
 
 #playlist-count{
 
-    color:#8b7866;
-
     font-size:13px;
 
-    font-weight:600;
+    color:#8d7a67;
 
 }
 
 /*==========================================================
-    TRACK TITLE
+    TITLE
 ==========================================================*/
 
 #music-title{
@@ -488,19 +728,17 @@ body::after{
 
     font-weight:800;
 
-    line-height:1.1;
-
-    color:white;
-
-    white-space:nowrap;
+    color:#fff;
 
     overflow:hidden;
+
+    white-space:nowrap;
 
     text-overflow:ellipsis;
 
     text-shadow:
 
-        0 0 18px rgba(255,180,60,.16);
+        0 0 16px rgba(255,170,70,.18);
 
 }
 
@@ -508,45 +746,43 @@ body::after{
 
     margin-top:8px;
 
-    color:#b8956e;
-
     font-size:15px;
 
-    font-weight:500;
+    color:#ba9871;
 
 }
 
 /*==========================================================
-    PROGRESS
+    MUSIC BAR
 ==========================================================*/
 
 .music-progress{
 
-    margin-top:22px;
-
-    height:7px;
-
-    border-radius:999px;
+    position:relative;
 
     overflow:hidden;
 
+    width:100%;
+
+    height:6px;
+
+    margin-top:22px;
+
+    border-radius:999px;
+
     background:
 
-        rgba(255,255,255,.05);
-
-    box-shadow:
-
-        inset 0 0 8px rgba(0,0,0,.55);
+        rgba(255,255,255,.06);
 
 }
 
 #music-progress-fill{
 
+    position:relative;
+
     width:0%;
 
     height:100%;
-
-    position:relative;
 
     border-radius:999px;
 
@@ -556,17 +792,17 @@ body::after{
 
             90deg,
 
-            #ff8b20,
+            #ff8e22,
 
-            #ffb14d,
+            #ffb24d,
 
-            #ffd48f
+            #ffd68d
 
         );
 
     box-shadow:
 
-        0 0 18px rgba(255,170,70,.35);
+        0 0 16px rgba(255,170,70,.40);
 
 }
 
@@ -576,11 +812,11 @@ body::after{
 
     position:absolute;
 
-    right:-25px;
-
     top:0;
 
-    width:70px;
+    left:-40px;
+
+    width:40px;
 
     height:100%;
 
@@ -592,7 +828,7 @@ body::after{
 
             transparent,
 
-            rgba(255,255,255,.45),
+            rgba(255,255,255,.55),
 
             transparent
 
@@ -600,8 +836,8 @@ body::after{
 
     animation:
 
-        musicBarGlow
-        2s
+        musicGlow
+        1.8s
         linear
         infinite;
 
@@ -619,14 +855,14 @@ body::after{
 
     justify-content:space-between;
 
-    color:#84715f;
+    color:#87715c;
 
     font-size:12px;
 
 }
 
 /*==========================================================
-    FOOTER
+    BOTTOM
 ==========================================================*/
 
 .music-bottom{
@@ -661,13 +897,15 @@ body::after{
 
     width:4px;
 
-    border-radius:30px;
+    height:10px;
 
-    background:#ffb75c;
+    border-radius:999px;
+
+    background:#ffb760;
 
     box-shadow:
 
-        0 0 12px rgba(255,180,70,.55);
+        0 0 10px rgba(255,180,70,.50);
 
     animation:
 
@@ -710,7 +948,7 @@ body::after{
 
     display:flex;
 
-    gap:12px;
+    gap:10px;
 
 }
 
@@ -720,51 +958,41 @@ body::after{
 
     height:42px;
 
-    border-radius:12px;
-
     cursor:pointer;
 
     border:none;
 
     outline:none;
 
-    color:#ffb866;
+    border-radius:12px;
+
+    color:#ffb965;
 
     font-size:16px;
 
     background:
 
-        linear-gradient(
+        rgba(255,170,70,.08);
 
-            180deg,
+    border:
 
-            rgba(255,165,70,.12),
-
-            rgba(255,140,50,.06)
-
-        );
-
-    border:1px solid rgba(255,170,70,.12);
+        1px solid rgba(255,170,70,.10);
 
     transition:
 
-        transform .18s,
-
-        background .18s,
-
-        box-shadow .18s;
+        .20s;
 
 }
 
 .music-controls button:hover{
 
+    background:
+
+        rgba(255,170,70,.18);
+
     transform:
 
         translateY(-2px);
-
-    background:
-
-        rgba(255,165,70,.20);
 
     box-shadow:
 
@@ -784,19 +1012,21 @@ body::after{
     MUSIC ANIMATION
 ==========================================================*/
 
-@keyframes musicBarGlow{
+@keyframes musicGlow{
 
     from{
 
         transform:
-            translateX(-80px);
+
+            translateX(-40px);
 
     }
 
     to{
 
         transform:
-            translateX(180px);
+
+            translateX(420px);
 
     }
 
@@ -813,29 +1043,29 @@ body::after{
     top:50%;
 
     transform:
-        translate(-50%,-57%);
+        translate(-50%,-58%);
+
+    width:900px;
 
     text-align:center;
 
-    z-index:25;
-
-    width:min(900px,85vw);
+    z-index:30;
 
 }
 
 /*==========================================================
-    LOGO GLOW
+    LOGO SHADOW
 ==========================================================*/
 
-#logo-glow{
+#logo-shadow{
 
     position:absolute;
 
     left:50%;
-    top:48%;
+    top:50%;
 
-    width:650px;
-    height:650px;
+    width:700px;
+    height:700px;
 
     transform:
         translate(-50%,-50%);
@@ -848,7 +1078,7 @@ body::after{
 
             circle,
 
-            rgba(255,145,40,.18),
+            rgba(255,145,40,.22),
 
             rgba(255,145,40,.08),
 
@@ -856,15 +1086,49 @@ body::after{
 
         );
 
-    filter:blur(75px);
+    filter:blur(95px);
 
     animation:
-        logoGlow
-        5s
+
+        shadowPulse
+        6s
         ease-in-out
         infinite;
 
     z-index:-1;
+
+}
+
+/*==========================================================
+    HUGE LETTER
+==========================================================*/
+
+#logo-back{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+
+        translate(-50%,-50%);
+
+    font-size:340px;
+
+    font-weight:900;
+
+    line-height:1;
+
+    color:
+
+        rgba(255,150,35,.045);
+
+    pointer-events:none;
+
+    text-shadow:
+
+        0 0 70px rgba(255,150,35,.10);
 
 }
 
@@ -874,6 +1138,8 @@ body::after{
 
 #logo{
 
+    position:relative;
+
     display:flex;
 
     justify-content:center;
@@ -882,9 +1148,7 @@ body::after{
 
     flex-wrap:wrap;
 
-    gap:2px;
-
-    line-height:1;
+    gap:0;
 
 }
 
@@ -894,9 +1158,9 @@ body::after{
 
 .logo-z{
 
-    color:#ff9625;
+    color:#ff9728;
 
-    font-size:90px;
+    font-size:92px;
 
     font-weight:900;
 
@@ -904,11 +1168,11 @@ body::after{
 
     text-shadow:
 
-        0 0 12px rgba(255,160,50,.30),
+        0 0 15px rgba(255,170,70,.35),
 
-        0 0 28px rgba(255,150,40,.28),
+        0 0 35px rgba(255,150,35,.25),
 
-        0 0 55px rgba(255,140,30,.15);
+        0 0 60px rgba(255,150,35,.18);
 
 }
 
@@ -918,9 +1182,9 @@ body::after{
 
 .logo-rest{
 
-    color:#ffffff;
+    color:white;
 
-    font-size:90px;
+    font-size:92px;
 
     font-weight:900;
 
@@ -928,7 +1192,7 @@ body::after{
 
     text-shadow:
 
-        0 0 18px rgba(255,255,255,.08);
+        0 0 20px rgba(255,255,255,.08);
 
 }
 
@@ -938,22 +1202,22 @@ body::after{
 
 #subtitle{
 
-    margin-top:22px;
+    margin-top:18px;
 
-    color:#b78f66;
+    color:#b79067;
 
     font-size:17px;
 
-    font-weight:600;
+    font-weight:700;
 
-    letter-spacing:7px;
+    letter-spacing:8px;
 
     text-transform:uppercase;
 
     animation:
 
-        subtitleBlink
-        2.5s
+        subtitleFade
+        2.6s
         ease-in-out
         infinite;
 
@@ -973,9 +1237,9 @@ body::after{
 
     align-items:center;
 
-    gap:16px;
+    gap:14px;
 
-    color:#7f6b59;
+    color:#8a7765;
 
     font-size:15px;
 
@@ -987,7 +1251,7 @@ body::after{
 
 #server-name{
 
-    color:#ffb869;
+    color:#ffb867;
 
     font-weight:700;
 
@@ -1001,147 +1265,10 @@ body::after{
 
 .dot{
 
-    color:#ff8d22;
-
-    font-size:18px;
+    color:#ff9728;
 
 }
 
-/*==========================================================
-    SMALL DECORATION
-==========================================================*/
-
-#center::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:-65px;
-
-    transform:
-
-        translateX(-50%);
-
-    width:140px;
-
-    height:2px;
-
-    background:
-
-        linear-gradient(
-
-            90deg,
-
-            transparent,
-
-            rgba(255,150,35,.85),
-
-            transparent
-
-        );
-
-    box-shadow:
-
-        0 0 18px rgba(255,150,35,.30);
-
-}
-
-#center::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    bottom:-75px;
-
-    transform:
-
-        translateX(-50%);
-
-    width:220px;
-
-    height:2px;
-
-    background:
-
-        linear-gradient(
-
-            90deg,
-
-            transparent,
-
-            rgba(255,170,70,.45),
-
-            transparent
-
-        );
-
-}
-
-/*==========================================================
-    LOGO ANIMATIONS
-==========================================================*/
-
-@keyframes logoGlow{
-
-    0%{
-
-        opacity:.75;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.96);
-
-    }
-
-    50%{
-
-        opacity:1;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1.05);
-
-    }
-
-    100%{
-
-        opacity:.75;
-
-        transform:
-            translate(-50%,-50%)
-            scale(.96);
-
-    }
-
-}
-
-@keyframes subtitleBlink{
-
-    0%{
-
-        opacity:.55;
-
-    }
-
-    50%{
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        opacity:.55;
-
-    }
-
-}
 /*==========================================================
     LOADING PANEL
 ==========================================================*/
@@ -1151,13 +1278,16 @@ body::after{
     position:absolute;
 
     left:50%;
-    bottom:58px;
 
-    transform:translateX(-50%);
+    bottom:55px;
+
+    transform:
+
+        translateX(-50%);
 
     width:min(900px,72vw);
 
-    z-index:25;
+    z-index:40;
 
 }
 
@@ -1175,7 +1305,7 @@ body::after{
 
 #loading-status{
 
-    color:#d8b28d;
+    color:#d7b48e;
 
     font-size:15px;
 
@@ -1183,26 +1313,20 @@ body::after{
 
     letter-spacing:3px;
 
-    text-transform:uppercase;
-
 }
 
 #percent{
+
+    color:white;
 
     font-size:22px;
 
     font-weight:900;
 
-    color:white;
-
-    text-shadow:
-
-        0 0 14px rgba(255,170,70,.30);
-
 }
 
 /*==========================================================
-    LOADING BAR
+    BAR
 ==========================================================*/
 
 .loading-bar{
@@ -1219,17 +1343,15 @@ body::after{
 
     background:
 
-        rgba(15,12,10,.88);
+        rgba(18,14,11,.92);
 
     border:
 
-        1px solid rgba(255,165,60,.14);
+        1px solid rgba(255,170,70,.12);
 
     box-shadow:
 
-        inset 0 0 20px rgba(0,0,0,.7),
-
-        0 0 18px rgba(255,150,35,.06);
+        inset 0 0 18px rgba(0,0,0,.70);
 
 }
 
@@ -1251,21 +1373,21 @@ body::after{
 
             90deg,
 
-            #ff8d20,
+            #ff8c1d,
 
-            #ffb04a,
+            #ffb24d,
 
-            #ffd48b
+            #ffd68f
 
         );
 
     transition:
 
-        width .25s linear;
+        width .22s linear;
 
     box-shadow:
 
-        0 0 22px rgba(255,170,70,.35);
+        0 0 20px rgba(255,170,70,.40);
 
 }
 
@@ -1279,13 +1401,13 @@ body::after{
 
         linear-gradient(
 
-            110deg,
+            100deg,
 
-            transparent 20%,
+            transparent,
 
-            rgba(255,255,255,.60) 50%,
+            rgba(255,255,255,.65),
 
-            transparent 80%
+            transparent
 
         );
 
@@ -1298,179 +1420,81 @@ body::after{
 
 }
 
-/*==========================================================
-    HUD
-==========================================================*/
+.loading-bottom{
 
-#hud-left{
-
-    position:absolute;
-
-    left:40px;
-
-    bottom:36px;
+    margin-top:10px;
 
     display:flex;
 
-    flex-direction:column;
+    justify-content:space-between;
 
-    gap:8px;
+    color:#7b6c5b;
 
-    z-index:30;
-
-    color:#716252;
-
-    font-size:13px;
+    font-size:12px;
 
     letter-spacing:2px;
 
 }
 
-#hud-right{
-
-    position:absolute;
-
-    right:40px;
-
-    bottom:36px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-end;
-
-    gap:8px;
-
-    z-index:30;
-
-    color:#716252;
-
-    font-size:13px;
-
-    letter-spacing:2px;
-
-}
-
-#loading-files{
-
-    color:#ffb560;
-
-}
-
 /*==========================================================
-    SCREEN FRAME
+    ANIMATION
 ==========================================================*/
 
-body::before{
+@keyframes shadowPulse{
 
-    content:"";
+    0%{
 
-    position:absolute;
+        transform:
 
-    inset:18px;
+            translate(-50%,-50%)
 
-    border:
-
-        1px solid rgba(255,150,35,.08);
-
-    pointer-events:none;
-
-    z-index:500;
-
-}
-
-/*==========================================================
-    CORNERS
-==========================================================*/
-
-body .corner{
-
-    position:absolute;
-
-    width:34px;
-
-    height:34px;
-
-    border-color:
-
-        rgba(255,150,35,.18);
-
-}
-
-/*==========================================================
-    SCROLLBAR
-==========================================================*/
-
-::-webkit-scrollbar{
-
-    width:0;
-
-    height:0;
-
-}
-
-/*==========================================================
-    RESPONSIVE
-==========================================================*/
-
-@media(max-width:1000px){
-
-    #music-widget{
-
-        width:330px;
+            scale(.95);
 
     }
 
-    .logo-z,
+    50%{
 
-    .logo-rest{
+        transform:
 
-        font-size:64px;
+            translate(-50%,-50%)
+
+            scale(1.06);
+
+    }
+
+    100%{
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(.95);
 
     }
 
 }
 
-@media(max-width:760px){
+@keyframes subtitleFade{
 
-    #music-widget{
+    0%{
 
-        left:5vw;
-
-        width:90vw;
+        opacity:.55;
 
     }
 
-    #loading{
+    50%{
 
-        width:90vw;
-
-    }
-
-    .logo-z,
-
-    .logo-rest{
-
-        font-size:46px;
-
-        letter-spacing:4px;
+        opacity:1;
 
     }
 
-    #subtitle{
+    100%{
 
-        font-size:13px;
-
-        letter-spacing:4px;
+        opacity:.55;
 
     }
 
 }
-
-/*==========================================================
-    ANIMATIONS
-==========================================================*/
 
 @keyframes progressGlow{
 
@@ -1491,6 +1515,282 @@ body .corner{
     }
 
 }
+/*==========================================================
+    HUD
+==========================================================*/
+
+#hud-left,
+#hud-right{
+
+    position:absolute;
+
+    bottom:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    z-index:50;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#7f6c59;
+
+}
+
+#hud-left{
+
+    left:38px;
+
+    align-items:flex-start;
+
+}
+
+#hud-right{
+
+    right:38px;
+
+    align-items:flex-end;
+
+}
+
+.hud-title{
+
+    color:#ffb768;
+
+    font-weight:700;
+
+}
+
+/*==========================================================
+    DECORATION LINES
+==========================================================*/
+
+body::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    top:28px;
+
+    height:1px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,170,70,.20),
+
+            transparent
+
+        );
+
+    pointer-events:none;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:28px;
+
+    height:1px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,170,70,.20),
+
+            transparent
+
+        );
+
+    pointer-events:none;
+
+}
+
+/*==========================================================
+    SCREEN BORDER
+==========================================================*/
+
+#background::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:16px;
+
+    border:
+
+        1px solid rgba(255,170,70,.06);
+
+    pointer-events:none;
+
+}
+
+/*==========================================================
+    FILM GRAIN
+==========================================================*/
+
+#noise{
+
+    animation:
+
+        noiseMove .35s steps(2) infinite;
+
+}
+
+/*==========================================================
+    RESPONSIVE
+==========================================================*/
+
+@media (max-width:1100px){
+
+    #music-widget{
+
+        width:340px;
+
+    }
+
+    .logo-z,
+    .logo-rest{
+
+        font-size:66px;
+
+        letter-spacing:6px;
+
+    }
+
+    #logo-back{
+
+        font-size:250px;
+
+    }
+
+}
+
+@media (max-width:850px){
+
+    #music-widget{
+
+        left:20px;
+        top:20px;
+
+        width:320px;
+
+    }
+
+    #loading{
+
+        width:90vw;
+
+    }
+
+    .logo-z,
+    .logo-rest{
+
+        font-size:50px;
+
+        letter-spacing:4px;
+
+    }
+
+    #subtitle{
+
+        font-size:13px;
+
+        letter-spacing:4px;
+
+    }
+
+    #hud-left,
+    #hud-right{
+
+        display:none;
+
+    }
+
+}
+
+@media (max-width:650px){
+
+    #music-widget{
+
+        left:5vw;
+
+        width:90vw;
+
+    }
+
+    #logo-back{
+
+        display:none;
+
+    }
+
+}
+
+/*==========================================================
+    FINAL ANIMATIONS
+==========================================================*/
+
+@keyframes noiseMove{
+
+    0%{
+
+        transform:translate(0,0);
+
+    }
+
+    25%{
+
+        transform:translate(-2px,1px);
+
+    }
+
+    50%{
+
+        transform:translate(2px,-1px);
+
+    }
+
+    75%{
+
+        transform:translate(-1px,-2px);
+
+    }
+
+    100%{
+
+        transform:translate(0,0);
+
+    }
+
+}
 
 @keyframes equalizer{
 
@@ -1502,7 +1802,7 @@ body .corner{
 
     20%{
 
-        height:24px;
+        height:26px;
 
     }
 
@@ -1514,7 +1814,7 @@ body .corner{
 
     60%{
 
-        height:28px;
+        height:30px;
 
     }
 
@@ -1529,5 +1829,87 @@ body .corner{
         height:8px;
 
     }
+
+}
+
+@keyframes logoFloat{
+
+    0%{
+
+        transform:
+
+            translate(-50%,-50%)
+
+            rotate(-2deg);
+
+    }
+
+    50%{
+
+        transform:
+
+            translate(-50%,-51%)
+
+            rotate(2deg);
+
+    }
+
+    100%{
+
+        transform:
+
+            translate(-50%,-50%)
+
+            rotate(-2deg);
+
+    }
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+
+        opacity:.75;
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(.95);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(1.05);
+
+    }
+
+    100%{
+
+        opacity:.75;
+
+        transform:
+
+            translate(-50%,-50%)
+
+            scale(.95);
+
+    }
+
+}
+
+::-webkit-scrollbar{
+
+    width:0;
+
+    height:0;
 
 }
